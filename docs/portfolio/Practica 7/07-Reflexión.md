@@ -1,112 +1,70 @@
-  title	                                            date
-Backpropagation y Optimizadores – Práctica 7     2025-01-01
+---
+title: "De Perceptrón a Redes Neuronales – Práctica 7"
+date: 2025-01-01
+---
+## Contexto
+Esta práctica forma parte de la Unidad 2 del curso, enfocada en la transición desde los modelos lineales clásicos hacia las redes neuronales artificiales.
+El objetivo general fue comprender cómo el perceptrón, uno de los primeros modelos de aprendizaje automático, sirve como base conceptual para las redes neuronales multicapa (MLP), que permiten resolver problemas no lineales.
 
-Contexto
-Esta práctica corresponde a la Unidad 2 del curso y tuvo como objetivo principal introducir los fundamentos del entrenamiento de redes neuronales mediante backpropagation, así como el rol de los optimizadores en el proceso de ajuste de los pesos.
-El ejercicio se desarrolló utilizando TensorFlow y Keras, implementando una red neuronal multicapa (MLP) entrenada sobre el dataset CIFAR-10, que contiene 60.000 imágenes a color de 32×32 píxeles distribuidas en 10 clases.
-El propósito fue construir un modelo de clasificación multiclase capaz de identificar el tipo de objeto presente en cada imagen.
+A través de ejercicios prácticos, se implementó un perceptrón desde cero y luego se exploró la arquitectura básica de un MLP utilizando TensorFlow y Keras, observando cómo las capas ocultas y las funciones de activación influyen en el aprendizaje.
 
-Objetivos
-- Comprender el flujo de entrenamiento de una red neuronal: forward pass y backpropagation.
-- Implementar un modelo MLP con TensorFlow/Keras.
-- Aplicar un optimizador Adam y entender su funcionamiento.
-- Evaluar la precisión del modelo sobre los conjuntos de entrenamiento y prueba.
-- Visualizar el proceso de entrenamiento mediante TensorBoard.
+## Objetivos
+- Comprender la estructura y funcionamiento del perceptrón simple.
+- Implementar el cálculo de salida a partir de entradas, pesos y bias.
+- Visualizar gráficamente la frontera de decisión del modelo.
+- Extender el concepto a un perceptrón multicapa (MLP).
+- Analizar cómo las funciones de activación y la profundidad de la red afectan la capacidad de clasificación.
 
-Actividades Realizadas
-1. Preparación del entorno y librerías
-Se importaron las librerías necesarias para la manipulación de datos, visualización y construcción de redes neuronales:
+## Actividades Realizadas
 
-import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras import layers
-import numpy as np, matplotlib.pyplot as plt, os, datetime as dt
+1. Implementación del Perceptrón Simple
+Se comenzó con la función perceptron(x1, x2, w1, w2, bias), encargada de calcular una salida binaria (0 o 1) según el valor de activación lineal.
+Esta implementación permitió experimentar con distintos valores de pesos y bias para observar cómo la frontera de decisión cambia.
 
-Además, se fijó una semilla aleatoria para asegurar la reproducibilidad de los resultados.
+2. Visualización de Resultados
+Se utilizó la función graficar_perceptron() para mostrar gráficamente los puntos de entrada y la línea divisoria aprendida.
+Los puntos correctamente clasificados se marcaron en *azul, y los incorrectos en **rojo*, facilitando la interpretación visual del desempeño del modelo.
 
-2. Carga y preprocesamiento de datos
-Se utilizó el dataset CIFAR-10, disponible directamente desde keras.datasets.
-Las etiquetas fueron convertidas a vectores simples y los valores de los píxeles se normalizaron al rango [-1, 1], lo cual mejora la estabilidad del entrenamiento.
+3. Transición al Perceptrón Multicapa (MLP)
+Posteriormente se introdujo la idea de una red neuronal con múltiples capas densas.
+A partir de la base teórica del perceptrón, se construyó una red Sequential con *capas densas (Dense)* y *funciones de activación ReLU y softmax*, utilizando TensorFlow/Keras.
+El modelo se entrenó con un conjunto de datos ya preprocesado, dividiendo entre *train, **validation* y *test*, siguiendo la misma metodología que en prácticas anteriores.
 
-(x_train, y_train), (x_test, y_test) = keras.datasets.cifar10.load_data()
-y_train = y_train.flatten()
-y_test = y_test.flatten()
+4. Entrenamiento y Evaluación
+El modelo se compiló con optimizer='adam' y loss='sparse_categorical_crossentropy', utilizando accuracy como métrica principal.
+Durante el entrenamiento se observó la evolución del error y la precisión, comprobando cómo el MLP logra representar patrones más complejos que el perceptrón simple.
 
-x_train = (x_train.astype("float32") / 255.0 - 0.5) * 2.0
-x_test = (x_test.astype("float32") / 255.0 - 0.5) * 2.0
+## Desarrollo y Resultados
 
-Luego, se separó un 10 % de los datos de entrenamiento para validación y se aplanaron las imágenes de 32×32×3 a vectores de tamaño 3072 para poder emplearlas en capas densas.
+- El perceptrón simple permitió *visualizar la frontera de decisión lineal*, demostrando que solo puede separar clases linealmente separables.
+- Al pasar al MLP, el modelo *incrementó su capacidad de clasificación*, logrando adaptarse a relaciones no lineales entre las variables de entrada.
+- Se comprobó que las *funciones de activación no lineales* (como ReLU o tanh) son las que posibilitan este aprendizaje más complejo.
+- Se realizaron visualizaciones que mostraron la mejora del modelo al aumentar el número de capas o neuronas, aunque también se notó un aumento del tiempo de entrenamiento.
 
-3. Definición del modelo
-Se construyó una red neuronal simple utilizando la API Sequential de Keras, con dos capas ocultas densas de 32 neuronas cada una y activación ReLU, seguidas de una capa de salida con activación softmax:
+## Evidencias
+El archivo “07-Practica7.ipynb” incluye:
 
-model = keras.Sequential([
-    layers.Dense(32, activation='relu', input_shape=(x_train.shape[1],)),
-    layers.Dense(32, activation='relu'),
-    layers.Dense(10, activation='softmax')
-])
+- Código del perceptrón simple implementado desde cero.
+- Función para graficar y visualizar la frontera de decisión.
+- Entrenamiento y evaluación de una red MLP en TensorFlow.
+- Gráficos comparativos de desempeño entre modelos.
 
-4. Compilación y entrenamiento
-El modelo se compiló utilizando el optimizador Adam, la función de pérdida sparse_categorical_crossentropy (adecuada para etiquetas enteras) y la métrica de accuracy:
+## Reflexión Personal
+Esta práctica me ayudó a entender con claridad cómo funciona una red neuronal desde sus fundamentos.
+Al implementar el perceptrón manualmente y luego pasar al MLP, pude ver cómo los conceptos teóricos se traducen en código y resultados concretos.
 
-model.compile(
-    optimizer='adam',
-    loss='sparse_categorical_crossentropy',
-    metrics=['accuracy']
-)
+Aprendí que:
+- Las redes profundas son una extensión natural del perceptrón simple.
+- Las funciones de activación juegan un rol clave al permitir que el modelo aprenda relaciones no lineales.
+- Un diseño de red más complejo no siempre garantiza mejor rendimiento, y requiere ajustar hiperparámetros cuidadosamente.
 
-El entrenamiento se realizó durante 5 épocas con un tamaño de lote (batch_size) de 32.
-Se habilitó TensorBoard para registrar la evolución de las métricas y visualizar histogramas de pesos.
+Fue una práctica muy útil para afianzar los conceptos previos y comenzar a comprender cómo se estructuran los modelos de aprendizaje profundo.
 
-run_dir = os.path.join("tb_logs", "experiment" + dt.datetime.now().strftime("%Y%m%d-%H%M%S"))
-history = model.fit(
-    x_train, y_train,
-    epochs=5,
-    batch_size=32,
-    validation_data=(x_test, y_test),
-    callbacks=[keras.callbacks.TensorBoard(log_dir=run_dir, histogram_freq=1)]
-)
 
-5. Evaluación del modelo
-Al finalizar el entrenamiento, el modelo fue evaluado en los conjuntos de entrenamiento y prueba:
+## Referencias
 
-train_loss, train_acc = model.evaluate(x_train, y_train, verbose=0)
-test_loss, test_acc = model.evaluate(x_test, y_test, verbose=0)
-
-Resultados obtenidos (valores aproximados):
-Conjunto	    Pérdida	Precisión
-Entrenamiento	  1.23	  0.52
-Prueba	        1.45	  0.45
-
-El rendimiento fue moderado, lo cual se considera razonable dado que la arquitectura utilizada es simple para un dataset visual complejo como CIFAR-10.
-
-Desarrollo y Resultados
-El modelo logró aprender patrones básicos de las imágenes, aunque su precisión en el conjunto de prueba se mantuvo limitada debido a la falta de profundidad y regularización.
-Se verificó, sin embargo, que el proceso de backpropagation funcionaba correctamente y que el modelo era capaz de ajustar los pesos para reducir la función de pérdida a lo largo de las épocas.
-A través de TensorBoard, fue posible observar las curvas de entrenamiento y validación, confirmando la correcta ejecución del flujo de optimización.
-
-Reflexión 
-Backpropagation es el mecanismo que permite actualizar los pesos de la red en función del error cometido. Se basa en el cálculo del gradiente de la pérdida respecto a cada parámetro.
-El optimizador Adam combina las ventajas del momentum y la adaptación del learning rate, acelerando la convergencia.
-La elección de funciones de activación no lineales (como ReLU) permite que la red aprenda representaciones más complejas.
-En este caso, la simplicidad de la red MLP limita la capacidad del modelo frente a un conjunto de imágenes con alta variabilidad, como CIFAR-10, donde suelen emplearse redes convolucionales.
-
-Evidencias
-El Notebook 07-Práctica7.ipynb contiene:
--Código de carga, preprocesamiento y normalización de datos.
--Definición, compilación y entrenamiento del modelo MLP.
--Configuración de TensorBoard y visualización de métricas.
--Evaluación final del modelo sobre los conjuntos de entrenamiento y prueba.
-
-Reflexión Personal
-Esta práctica me permitió comprender cómo se entrena una red neuronal desde cero y el papel clave del backpropagation en el ajuste de los pesos.
-Pude observar cómo el uso del optimizador Adam facilita el aprendizaje sin necesidad de un ajuste manual complejo.
-Además, aprendí a interpretar las curvas de entrenamiento y validación en TensorBoard, lo que ayuda a identificar posibles casos de sobreajuste o estancamiento del aprendizaje.
-
-Referencias
-TensorFlow API Documentation:
-  Dense Layer
-  Optimizers
-  Callbacks (TensorBoard)
-CIFAR-10 Dataset – Keras Datasets
-Goodfellow, I., Bengio, Y., & Courville, A. (2016). Deep Learning. MIT Press
+- Documentación oficial de TensorFlow/Keras:
+  - [tf.keras.layers.Dense](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense)
+  - [tf.keras.activations](https://www.tensorflow.org/api_docs/python/tf/keras/activations)
+- Notas de clase: Unidad 2 – Redes Neuronales y Backpropagation.
+- McCulloch, W. S., & Pitts, W. (1943). A Logical Calculus of Ideas Immanent in Nervous Activity.
