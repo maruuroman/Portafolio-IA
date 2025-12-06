@@ -1,7 +1,3 @@
----
-title: "Clustering y PCA - Mall Customer Segmentation – Práctica 6"
----
-
 # Clustering y PCA - Mall Customer Segmentation – Práctica 6
 
 ## Contexto
@@ -50,4 +46,3 @@ La actividad se desarrolló en Google Colab con Python, utilizando principalment
 - Documentación de [scikit-learn](https://scikit-learn.org/stable/modules/clustering.html)  
 - Artículos de *Silhouette Score* y selección de características en [scikit-learn](https://scikit-learn.org/stable/modules/feature_selection.html)  
 - Apuntes de clase.
-- Se encuantran en el archivo "06-Práctica6.ipynb" dentro de esta carpeta.

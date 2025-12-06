@@ -1,7 +1,3 @@
----
-title: "Validación y Selección de Modelos - Práctica 5"
----
-
 # Validación y Selección de Modelos - Práctica 5
 **Materia:** Introducción a los Métodos de Aprendizaje Automático  
 
@@ -86,4 +82,3 @@ Aprendí a:
   - [`cross_val_score`](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html)  
   - [`GridSearchCV`](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)  
   - [`RandomForestClassifier`](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)  
-- Se encuantran en el archivo "05-Práctica5.ipynb" dentro de esta carpeta.

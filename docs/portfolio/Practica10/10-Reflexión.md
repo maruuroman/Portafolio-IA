@@ -7,8 +7,6 @@ Además, busca aplicar **técnicas de explicabilidad** para comprender cómo el 
 
 El caso de negocio simula una **aplicación móvil para identificación de flores** destinada a jardineros y botánicos aficionados. El desafío consiste en lograr un modelo preciso, robusto y explicable que funcione correctamente con imágenes reales enviadas por usuarios.
 
----
-
 ## Objetivos
 
 - Implementar un pipeline de **data augmentation avanzado** con TensorFlow/Keras.  
@@ -17,20 +15,19 @@ El caso de negocio simula una **aplicación móvil para identificación de flore
 - Evaluar el impacto de augmentation en la precisión y estabilidad del modelo.  
 - Comparar desempeño entre un modelo baseline y uno augmentado.
 
----
 
 ## Actividades realizadas
 
 1. **Carga y preparación del dataset Oxford Flowers102** mediante `tensorflow_datasets`, aplicando `resize` y conversión a `float32`.  
 2. **Definición del pipeline baseline** con normalización mediante `preprocess_input`.  
 3. **Implementación de data augmentation avanzado** usando capas de Keras:
-   ```python
-   layers.RandomFlip("horizontal"),
-   layers.RandomRotation(0.125),
-   layers.RandomZoom(0.2),
-   layers.RandomTranslation(0.1),
-   layers.RandomBrightness(0.2),
-   layers.RandomContrast(0.2)
+
+   layers.RandomFlip("horizontal"),  <br>
+   layers.RandomRotation(0.125),  <br>
+   layers.RandomZoom(0.2),  <br>
+   layers.RandomTranslation(0.1),  <br>
+   layers.RandomBrightness(0.2),  <br>
+   layers.RandomContrast(0.2)  
 
 4. Creación del modelo base con transfer learning:
 base_model = keras.applications.EfficientNetB0(

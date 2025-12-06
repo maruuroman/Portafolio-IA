@@ -1,8 +1,5 @@
----
-title: "Backpropagation y Optimizadores – Práctica 8 "
-date: 2025-01-01
----
 # Backpropagation y Optimizadores – Práctica 8
+
 ## Contexto
 Esta práctica corresponde a la Unidad 2 del curso y tuvo como objetivo principal introducir los fundamentos del entrenamiento de redes neuronales mediante backpropagation, así como el rol de los optimizadores en el proceso de ajuste de los pesos.
 El ejercicio se desarrolló utilizando TensorFlow y Keras, implementando una red neuronal multicapa (MLP) entrenada sobre el dataset CIFAR-10, que contiene 60.000 imágenes a color de 32×32 píxeles distribuidas en 10 clases.
@@ -16,7 +13,7 @@ El propósito fue construir un modelo de clasificación multiclase capaz de iden
 - Visualizar el proceso de entrenamiento mediante TensorBoard.
 
 ## Actividades Realizadas
-1. Preparación del entorno y librerías
+1 Preparación del entorno y librerías
 Se importaron las librerías necesarias para la manipulación de datos, visualización y construcción de redes neuronales:
 
 import tensorflow as tf
@@ -26,7 +23,7 @@ import numpy as np, matplotlib.pyplot as plt, os, datetime as dt
 
 Además, se fijó una semilla aleatoria para asegurar la reproducibilidad de los resultados.
 
-2. Carga y preprocesamiento de datos
+2 Carga y preprocesamiento de datos
 Se utilizó el dataset CIFAR-10, disponible directamente desde keras.datasets.
 Las etiquetas fueron convertidas a vectores simples y los valores de los píxeles se normalizaron al rango [-1, 1], lo cual mejora la estabilidad del entrenamiento.
 
@@ -39,7 +36,7 @@ x_test = (x_test.astype("float32") / 255.0 - 0.5) * 2.0
 
 Luego, se separó un 10 % de los datos de entrenamiento para validación y se aplanaron las imágenes de 32×32×3 a vectores de tamaño 3072 para poder emplearlas en capas densas.
 
-3. Definición del modelo
+3 Definición del modelo
 Se construyó una red neuronal simple utilizando la API Sequential de Keras, con dos capas ocultas densas de 32 neuronas cada una y activación ReLU, seguidas de una capa de salida con activación softmax:
 
 model = keras.Sequential([
@@ -48,7 +45,7 @@ model = keras.Sequential([
     layers.Dense(10, activation='softmax')
 ])
 
-4. Compilación y entrenamiento
+4 Compilación y entrenamiento
 El modelo se compiló utilizando el optimizador Adam, la función de pérdida sparse_categorical_crossentropy (adecuada para etiquetas enteras) y la métrica de accuracy:
 
 model.compile(
@@ -69,7 +66,7 @@ history = model.fit(
     callbacks=[keras.callbacks.TensorBoard(log_dir=run_dir, histogram_freq=1)]
 )
 
-5. Evaluación del modelo
+5 Evaluación del modelo
 Al finalizar el entrenamiento, el modelo fue evaluado en los conjuntos de entrenamiento y prueba:
 
 train_loss, train_acc = model.evaluate(x_train, y_train, verbose=0)

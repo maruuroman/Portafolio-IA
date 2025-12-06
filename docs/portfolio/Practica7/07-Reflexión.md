@@ -1,7 +1,5 @@
----
-title: "De Perceptrón a Redes Neuronales – Práctica 7"
-date: 2025-01-01
----
+# "De Perceptrón a Redes Neuronales – Práctica 7"
+
 ## Contexto
 Esta práctica forma parte de la Unidad 2 del curso, enfocada en la transición desde los modelos lineales clásicos hacia las redes neuronales artificiales.
 El objetivo general fue comprender cómo el perceptrón, uno de los primeros modelos de aprendizaje automático, sirve como base conceptual para las redes neuronales multicapa (MLP), que permiten resolver problemas no lineales.
