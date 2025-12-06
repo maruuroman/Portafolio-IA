@@ -105,7 +105,7 @@ Esta práctica permitió experimentar con los componentes fundamentales de LangC
 - Experimentos con zero-shot y few-shot.
 - Pipeline RAG con documentos locales y FAISS.
 - Traza de tokens y latencia usando LangSmith.
-- En el archivo [Practica14](14-Practica14.ipynb) se encuantran realizada la actividad.
+- En el archivo [Practica14](14-Practica14.zip) se encuantran realizada la actividad.
 
 ## Reflexión Personal
 

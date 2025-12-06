@@ -31,7 +31,7 @@ Se utilizó Jupyter Notebook con `pandas`, `scikit-learn` y `matplotlib`.
    La regresión logística obtuvo una exactitud ligeramente superior y mejor área bajo la curva.
 
 ## Evidencias
-- - En el archivo [Practica4](04-Practica4.ipynb) se encuantran realizada la actividad.
+- - En el archivo [Practica4](04-Práctica_4.ipynb) se encuantran realizada la actividad.
 
 ## Reflexión
 Aprendí a comparar modelos de forma sistemática y a valorar la importancia del preprocesamiento.  

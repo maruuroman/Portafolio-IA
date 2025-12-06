@@ -35,7 +35,7 @@ La actividad se desarrolló en Google Colab con Python, utilizando principalment
 - **Evaluación:** Registré Silhouette Score y gráficos de dispersión para cada combinación, destacando que la reducción de dimensiones mejoró la claridad de algunos clusters.
 
 ## Evidencias
-- En el archivo [Practica6](06-Practica6.ipynb) se encuantran realizada la actividad.  
+- En el archivo [Practica6](06-Practico_6.ipynb) se encuantran realizada la actividad.  
 - Gráficos generados:
   - Curva del método del codo y Silhouette para K-Means.  
   - Visualización 2D PCA de los distintos algoritmos.  

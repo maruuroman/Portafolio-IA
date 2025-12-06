@@ -181,4 +181,4 @@ El costo de tokens aumenta drásticamente
 La memoria dinámica ofrece rendimiento, coherencia y escalabilidad.
 
 ## Evidencias
-- En el archivo [Practica15](15-Practica15.ipynb) se encuantran realizada la actividad.
+- En el archivo [Practica15](15-Practica15.zip) se encuantran realizada la actividad.
