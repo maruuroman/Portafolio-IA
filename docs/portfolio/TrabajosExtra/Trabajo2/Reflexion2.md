@@ -28,3 +28,8 @@ Construir una CNN pequeña para CIFAR-10, usando data augmentation y early stopp
 - Regularización adicional (Dropout/Weight Decay).
 - Arquitecturas más profundas (ResNet pequeñas).
 - *Mixup/Cutout* y *learning rate schedules*.
+
+
+## Evidencia 
+
+- En el archivo [Trabajo2](Trabajo2.ipynb) se encuantran realizada la actividad.

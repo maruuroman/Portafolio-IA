@@ -1,4 +1,4 @@
-# YOLOv8 Fine-tuning & Object Tracking – Práctica 11
+# YOLOv8 Fine-tuning & Tracking – Práctica 11
 
 ## Contexto  
 Esta práctica tuvo como finalidad aplicar los conceptos de **detección de objetos**, **fine-tuning con YOLOv8** y **tracking multi-objeto** en un caso de uso realista dentro del contexto de retail.  
@@ -69,7 +69,7 @@ También pude experimentar con decisiones prácticas como reducir el dataset med
 En conjunto, fue una experiencia muy valiosa que integró visión por computadora, entrenamiento supervisado y análisis temporal, acercándose a escenarios reales de retail inteligente.
 
 ### Evidencias
-- Entrenamiento y validación en Google Colab
+- Entrenamiento y validación en [Practica11](11-Practica11.ipynb).
 - Pesos generados en runs/detect/fruit_finetuned/weights/best.pt
 - Gráficos de entrenamiento (results.png)
 - Video exportado con tracking persistente

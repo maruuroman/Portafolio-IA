@@ -94,7 +94,7 @@ La elección de funciones de activación no lineales (como ReLU) permite que la 
 En este caso, la simplicidad de la red MLP limita la capacidad del modelo frente a un conjunto de imágenes con alta variabilidad, como CIFAR-10, donde suelen emplearse redes convolucionales.
 
 ## Evidencias
-El Notebook 08-Práctica8.ipynb contiene:
+- En el archivo [Practica8](08-Practica8.ipynb) contiene:
 - Código de carga, preprocesamiento y normalización de datos.
 - Definición, compilación y entrenamiento del modelo MLP.
 - Configuración de TensorBoard y visualización de métricas.

@@ -31,3 +31,7 @@ Comparar Random Forest y Gradient Boosting sobre Titanic con `Pipeline` + `Colum
 - Balanceo de clases (class_weight, SMOTE).
 - *Feature engineering* específico (familiares, cabinas, títulos).
 - Calibración de probabilidades y análisis de *thresholds*.
+
+## Evidencia 
+
+- En el archivo [Trabajo1](Trabajo1.ipynb) se encuantran realizada la actividad.

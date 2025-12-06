@@ -1,8 +1,3 @@
----
-title: "Feature Engineering y Modelo Base – Práctica 2"
-date: 2025-01-08
----
-
 # Feature Engineering y Modelo Base – Práctica 2
 
 ## Contexto
@@ -49,7 +44,7 @@ El objetivo es preparar los datos, generar nuevas variables que mejoren el apren
   - Evalué *accuracy*, *classification_report* y *confusion_matrix*.
 
 ## Evidencias
-- Se encuantran en el archivo "02-Práctica2.ipynb" dentro de esta carpeta. 
+- En el archivo [Practica2](02-Practica2.ipynb) se encuantran realizada la actividad.
 - Principales resultados (ejemplo típico en este dataset):
   - **Accuracy baseline:** ~0.62 (predice siempre “no sobrevivió”).  
   - **Accuracy Logistic Regression:** ~0.79.  

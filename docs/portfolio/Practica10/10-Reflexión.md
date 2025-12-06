@@ -1,4 +1,4 @@
-# Práctico 10: Data Augmentation Avanzado & Explicabilidad
+# Data Augmentation Avanzado & Explicabilidad - Práctico 10
 
 ## Contexto
 
@@ -73,7 +73,7 @@ El enfoque de explicabilidad (GradCAM e Integrated Gradients) resulta clave para
 - Parámetros entrenables: Solo la capa final.
 - Entrenamiento: 5 épocas con data augmentation.
 - Resultados: Accuracy validación >85% (dependiendo del hardware).
-- Archivo generado: mi_modelo_flores.h5.
+- En el archivo [Practica10](10-Practica10.ipynb) se encuantran realizada la actividad.
 
 ## Reflexión personal
 

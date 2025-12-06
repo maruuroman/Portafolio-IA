@@ -1,4 +1,4 @@
-# Práctico 15: Orquestando Inteligencia: Agentes Conversacionales con LangGraph, RAG y Memoria Dinámica
+# Agentes con LangGraph — RAG, Tools y Memoria Conversacional - Práctico 15
 ## Contexto
 
 Los sistemas conversacionales modernos han evolucionado más allá de los chatbots simples hacia agentes inteligentes capaces de razonar, usar herramientas externas y mantener memoria de interacciones previas.
@@ -7,27 +7,20 @@ LangGraph permite modelar estos agentes como grafos de estado, donde cada nodo r
 
 Esta práctica desarrolla desde cero un agente multi-herramienta que integra:
 
-RAG con FAISS para fundamentar respuestas en documentación real
-
-Tool calling automático para ejecutar funciones externas (pedidos, hora UTC, búsqueda)
-
-Memoria conversacional dinámica mediante resúmenes periódicos
-
-UI en Gradio para interacción y debugging visual
+- RAG con FAISS para fundamentar respuestas en documentación real
+- Tool calling automático para ejecutar funciones externas (pedidos, hora UTC, búsqueda)
+- Memoria conversacional dinámica mediante resúmenes periódicos
+- UI en Gradio para interacción y debugging visual
 
 El objetivo fue diseñar un agente capaz de decidir autónomamente cuándo usar sus herramientas, cómo combinar información y cuándo responder directamente, todo dentro de una arquitectura trazable y depurable.
 
 ## Objetivos
 
-Construir un AgentState robusto que almacene mensajes multi-turno y soporte resúmenes compactos.
-
-Diseñar un RAG reutilizable utilizando embeddings de OpenAI y FAISS como vector store local.
-
-Integrar tool calling dinámico para que el modelo decida entre RAG, consulta de pedidos o tiempo UTC.
-
-Diseñar un grafo cíclico en LangGraph con routing condicional assistant → tools → assistant.
-
-Desplegar una interfaz en Gradio con historial persistente y log de herramientas usadas.
+- Construir un AgentState robusto que almacene mensajes multi-turno y soporte resúmenes compactos.
+- Diseñar un RAG reutilizable utilizando embeddings de OpenAI y FAISS como vector store local.
+- Integrar tool calling dinámico para que el modelo decida entre RAG, consulta de pedidos o tiempo UTC.
+- Diseñar un grafo cíclico en LangGraph con routing condicional assistant → tools → assistant.
+- Desplegar una interfaz en Gradio con historial persistente y log de herramientas usadas.
 
 ## Actividades
 Actividad	Descripción	Resultado Obtenido
@@ -43,65 +36,53 @@ Actividad	Descripción	Resultado Obtenido
 10. Streaming de eventos	Uso de graph.stream para observar el flujo interno.	Log con human → ai → tool → ai. Útil para debugging.
 11. Nodo de memoria	Implementación de resúmenes automáticos en 3 bullets.	Summary dinámico: captura intenciones y temas previos.
 12. Interfaz Gradio	Construcción de UI interactiva con logs de tools.	App funcional para pruebas externas.
-Desarrollo
+
+## Desarrollo
 
 Paso 1–2: Setup y Estado Extendido
 
-## Decisiones técnicas:
+**Decisiones técnicas:**
 
-langgraph>=0.2.0 e langchain-openai para modelo + herramientas
-
-faiss-cpu como motor vectorial liviano
+- langgraph>=0.2.0 e langchain-openai para modelo + herramientas
+- faiss-cpu como motor vectorial liviano
 
 AgentState con:
 
-messages acumulativos
-
-summary: Optional[str] para resúmenes periódicos
+- messages acumulativos
+- summary: Optional[str] para resúmenes periódicos
 
 Componentes clave:
 
-START, END, y construcción del grafo lineal base
-
-gpt-4o-mini: balance entre velocidad y calidad
-
-assistant_node: ejecuta llm.invoke(state["messages"]) utilizando historial completo
-
+- START, END, y construcción del grafo lineal base
+- gpt-4o-mini: balance entre velocidad y calidad
+- assistant_node: ejecuta llm.invoke(state["messages"]) utilizando historial completo
 Resultado: Un agente mínimo totalmente funcional con estado explícito.
 
-Reflexión
+## Reflexión
 La elección de Optional[str] para summary ofrece flexibilidad: permite empezar sin resumen, actualizarlo cuando haga falta y mantener el contexto bajo control aunque la conversación crezca ilimitadamente.
 
 Paso 3–5: RAG y Tools Adicionales
 
 Pipeline RAG:
-
 Documentos → TextSplitter → OpenAI Embeddings → FAISS VectorStore → Retriever(k=3)
 
-
 Tool RAG:
-
 @tool sobre rag_search(question)
 
 Devuelve concatenado de los top-3 chunks
-
 Sin JSON innecesario → mejor interpretación del modelo
 
 Tools adicionales:
 
 get_order_status(order_id) — simula sistema externo
-
 get_utc_time() — retorna hora actual en formato ISO
 
 Reflexión – Escalabilidad RAG:
 Para corpus grandes (>50k documentos):
 
 Vector stores distribuidos (Pinecone, Weaviate)
-
 Filtros por metadata (tema, fecha)
-
 Reranking con modelos cross-encoder
-
 Embeddings económicos (embedding-3-small)
 
 Paso 6–9: Grafo con Tool Calling y Multi-turno
@@ -200,4 +181,4 @@ El costo de tokens aumenta drásticamente
 La memoria dinámica ofrece rendimiento, coherencia y escalabilidad.
 
 ## Evidencias
-* - Notebook 15-Practica15.zip con todo el código ejecutado.
+- En el archivo [Practica15](15-Practica15.ipynb) se encuantran realizada la actividad.

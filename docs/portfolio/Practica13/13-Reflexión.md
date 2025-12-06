@@ -1,4 +1,4 @@
-# Práctico 13: Análisis de Sentimiento Financiero con TF-IDF y Transformers 
+# Fine-tuning de Transformers para Clasificación Ofensiva - Práctico 13
 
 ## Contexto
 
@@ -18,23 +18,15 @@ El objetivo fue comparar el desempeño entre un enfoque tradicional (TF-IDF + Re
 
 ## Actividades Realizadas
 
-Setup del entorno y carga del dataset financiero desde Hugging Face.
-
-Exploración inicial del dataset: distribución de longitudes y proporciones de clases.
-
-Análisis lexical mediante n-grams y WordClouds por clase.
-
-EDA avanzado: TF-IDF + PCA/UMAP y exploración de embeddings Word2Vec.
-
-Implementación del baseline TF-IDF (ngrams 1-2) + Logistic Regression.
-
-Entrenamiento del modelo FinBERT con fine-tuning y regularización.
-
-Comparación de métricas clave: accuracy, macro-F1 y matriz de confusión.
-
-Análisis de curvas de aprendizaje y detección de overfitting.
-
-Evaluación de trade-offs para despliegue en sistemas financieros reales.
+- Setup del entorno y carga del dataset financiero desde Hugging Face.
+- Exploración inicial del dataset: distribución de longitudes y proporciones de clases.
+- Análisis lexical mediante n-grams y WordClouds por clase.
+- EDA avanzado: TF-IDF + PCA/UMAP y exploración de embeddings Word2Vec.
+- Implementación del baseline TF-IDF (ngrams 1-2) + Logistic Regression.
+- Entrenamiento del modelo FinBERT con fine-tuning y regularización.
+- Comparación de métricas clave: accuracy, macro-F1 y matriz de confusión.
+- Análisis de curvas de aprendizaje y detección de overfitting.
+- Evaluación de trade-offs para despliegue en sistemas financieros reales.
 
 ## Desarrollo y Resultados
 Baseline Clásico: TF-IDF + Logistic Regression
@@ -89,19 +81,13 @@ Los modelos clásicos siguen siendo útiles en prototipos, validaciones rápidas
 
 ## Evidencias
 
-Carga y preprocesamiento del dataset con Hugging Face datasets.
-
-WordClouds, análisis de n-grams y visualizaciones PCA/UMAP.
-
-Implementación de TF-IDF + LogisticRegression como baseline.
-
-Entrenamiento completo del modelo FinBERT con métricas por época.
-
-Matrices de confusión comparativas entre ambos modelos.
-
-Curvas de aprendizaje y evolución de accuracy/F1.
-
-Notebook 13-Practica13.ipynb con todo el código ejecutado.
+- Carga y preprocesamiento del dataset con Hugging Face datasets.
+- WordClouds, análisis de n-grams y visualizaciones PCA/UMAP.
+- Implementación de TF-IDF + LogisticRegression como baseline.
+- Entrenamiento completo del modelo FinBERT con métricas por época.
+- Matrices de confusión comparativas entre ambos modelos.
+- Curvas de aprendizaje y evolución de accuracy/F1.
+- En el archivo [Practica13](13-Practica13.ipynb) se encuantran realizada la actividad.
 
 ## Reflexión Personal
 

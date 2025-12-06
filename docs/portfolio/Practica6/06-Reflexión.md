@@ -1,9 +1,8 @@
 ---
-title: "Clustering y Selección de Características – Práctica 6"
-date: 2025-01-01
+title: "Clustering y PCA - Mall Customer Segmentation – Práctica 6"
 ---
 
-# Clustering y Selección de Características – Práctica 6
+# Clustering y PCA - Mall Customer Segmentation – Práctica 6
 
 ## Contexto
 En esta práctica trabajé con técnicas de aprendizaje no supervisado, aplicando distintos algoritmos de clustering y métodos de selección de características sobre un dataset multivariado.  
@@ -36,7 +35,7 @@ La actividad se desarrolló en Google Colab con Python, utilizando principalment
 - **Evaluación:** Registré Silhouette Score y gráficos de dispersión para cada combinación, destacando que la reducción de dimensiones mejoró la claridad de algunos clusters.
 
 ## Evidencias
-- Notebook de Google Colab: `Practica6.ipynb`  
+- En el archivo [Practica6](06-Practica6.ipynb) se encuantran realizada la actividad.  
 - Gráficos generados:
   - Curva del método del codo y Silhouette para K-Means.  
   - Visualización 2D PCA de los distintos algoritmos.  

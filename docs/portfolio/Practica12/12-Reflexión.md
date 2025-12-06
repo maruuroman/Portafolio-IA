@@ -1,4 +1,4 @@
-# Segment Anything (SAM) para Flood Segmentation – Práctica 12
+# SAM Segmentation - Pretrained vs Fine-tuned – Práctica 12
 
 ## Contexto  
 Esta práctica tuvo como finalidad aplicar **segmentación semántica** usando el modelo **Segment Anything (SAM)**, comparando su desempeño en modo **zero-shot** contra un modelo **fine-tuned específicamente para segmentación de inundaciones**.  
@@ -131,7 +131,7 @@ En general, fue una experiencia sumamente enriquecedora que integró segmentaci�
 
 ## Evidencias
 
-- Notebook de entrenamiento y evaluación  
+- En el archivo [Practica12](12-Practica12.ipynb) se encuantran realizada la actividad.
 - Métricas registradas en tabla comparativa  
 - Visualizaciones superpuestas (GT vs predicciones)  
 - Curvas de loss e IoU por época  

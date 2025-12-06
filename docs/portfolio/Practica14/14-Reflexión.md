@@ -1,4 +1,4 @@
-## Practica 14: LangChain: Prompts, Structured Output y RAG – Práctica UT4-14
+# LLMs con LangChain (OpenAI) — Prompting, Plantillas y Salida Estructurada (ES) - Practica 14
 
 ## Contexto
 Esta práctica tuvo como finalidad experimentar con los componentes fundamentales de LangChain y su integración con modelos de OpenAI. Se trabajó con prompts, plantillas, salidas estructuradas y pipelines de RAG, evaluando su modularidad, control de formato y capacidad de fundamentar respuestas en documentos específicos.
@@ -7,37 +7,24 @@ El objetivo fue comparar enfoques zero-shot y few-shot, implementar structured o
 
 ## Objetivos
 
-Comprender la separación entre prompts, modelos y cadenas mediante LCEL (|).
-
-Obtener salidas estructuradas con Pydantic, eliminando parsing manual frágil.
-
-Experimentar con zero-shot y few-shot para clasificación y generación de texto.
-
-Implementar un pipeline RAG usando documentos locales.
-
-Analizar la importancia de observabilidad y trazas con LangSmith.
-
-Reflexionar sobre la modularidad y robustez de los flujos en LangChain.
+- Comprender la separación entre prompts, modelos y cadenas mediante LCEL (|).
+- Obtener salidas estructuradas con Pydantic, eliminando parsing manual frágil.
+- Experimentar con zero-shot y few-shot para clasificación y generación de texto.
+- Implementar un pipeline RAG usando documentos locales.
+- Analizar la importancia de observabilidad y trazas con LangSmith.
+- Reflexionar sobre la modularidad y robustez de los flujos en LangChain.
 
 ## Actividades Realizadas
 
-Configuración del entorno Python con LangChain y OpenAI.
-
-Instalación de dependencias: langchain, langchain-openai, langsmith y otras opcionales.
-
-Creación de prompts y plantillas reutilizables mediante ChatPromptTemplate y operador | (LCEL).
-
-Configuración de modelos ChatOpenAI y ajuste de parámetros como temperature y max_tokens.
-
-Implementación de structured output con Pydantic para respuestas validadas en JSON.
-
-Experimentos comparando zero-shot vs few-shot para clasificación de texto.
-
-Construcción de un pipeline RAG con documentos locales y vector store FAISS.
-
-Evaluación de métricas, tokens y latencia usando LangSmith y callbacks.
-
-Reflexión sobre modularidad, consistencia y fundamentos de las respuestas.
+- Configuración del entorno Python con LangChain y OpenAI.
+- Instalación de dependencias: langchain, langchain-openai, langsmith y otras opcionales.
+- Creación de prompts y plantillas reutilizables mediante ChatPromptTemplate y operador | (LCEL).
+- Configuración de modelos ChatOpenAI y ajuste de parámetros como temperature y max_tokens.
+- Implementación de structured output con Pydantic para respuestas validadas en JSON.
+- Experimentos comparando zero-shot vs few-shot para clasificación de texto.
+- Construcción de un pipeline RAG con documentos locales y vector store FAISS.
+- Evaluación de métricas, tokens y latencia usando LangSmith y callbacks.
+- Reflexión sobre modularidad, consistencia y fundamentos de las respuestas.
 
 ## Desarrollo y Resultados
 Prompts y LCEL
@@ -81,9 +68,8 @@ Zero-shot vs Few-shot
 
 Se comparó desempeño y control de formato:
 
-Zero-shot: funciona bien para clasificación simple.
-
-Few-shot: mayor consistencia y control sobre la salida.
+- Zero-shot: funciona bien para clasificación simple.
+- Few-shot: mayor consistencia y control sobre la salida.
 
 Pipeline RAG
 
@@ -106,30 +92,20 @@ Resultado: respuestas fundamentadas en documentos específicos, demostrando el v
 ## Reflexión
 
 Esta práctica permitió experimentar con los componentes fundamentales de LangChain:
-
-La separación entre prompts, modelos y cadenas mediante LCEL facilita la modularidad del código.
-
-El uso de structured output con Pydantic elimina la fragilidad del parsing manual y garantiza respuestas válidas.
-
-La comparación zero-shot vs few-shot mostró que ambos funcionan bien para clasificación simple, pero few-shot da mayor control sobre el formato.
-
-El pipeline RAG demostró cómo fundamentar respuestas en documentos específicos.
-
-Las advertencias de LangSmith evidencian la importancia de configurar correctamente las credenciales para observabilidad en producción.
+- La separación entre prompts, modelos y cadenas mediante LCEL facilita la modularidad del código.
+- El uso de structured output con Pydantic elimina la fragilidad del parsing manual y garantiza respuestas válidas.
+- La comparación zero-shot vs few-shot mostró que ambos funcionan bien para clasificación simple, pero few-shot da mayor control sobre el formato.
+- El pipeline RAG demostró cómo fundamentar respuestas en documentos específicos.
+- Las advertencias de LangSmith evidencian la importancia de configurar correctamente las credenciales para observabilidad en producción.
 
 ## Evidencias
 
-Implementación de ChatPromptTemplate y flujos LCEL.
-
-Uso de with_structured_output para garantizar JSON válido.
-
-Experimentos con zero-shot y few-shot.
-
-Pipeline RAG con documentos locales y FAISS.
-
-Traza de tokens y latencia usando LangSmith.
-
-Notebook 14-Practica14.zip con todo el código ejecutado.
+- Implementación de ChatPromptTemplate y flujos LCEL.
+- Uso de with_structured_output para garantizar JSON válido.
+- Experimentos con zero-shot y few-shot.
+- Pipeline RAG con documentos locales y FAISS.
+- Traza de tokens y latencia usando LangSmith.
+- En el archivo [Practica14](14-Practica14.ipynb) se encuantran realizada la actividad.
 
 ## Reflexión Personal
 

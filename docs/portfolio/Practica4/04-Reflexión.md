@@ -1,9 +1,4 @@
----
-title: "Práctica 4 – Introducción a los Métodos de Aprendizaje Automático"
-date: 2025-09-16
----
-
-# Práctica 4 – Introducción a los Métodos de Aprendizaje Automático
+# Regresion Lineal y Regresion Logistica - Práctica 4 
 
 ## Contexto
 En esta práctica se trabajó con técnicas básicas de aprendizaje supervisado para comprender el flujo completo:  
@@ -36,7 +31,7 @@ Se utilizó Jupyter Notebook con `pandas`, `scikit-learn` y `matplotlib`.
    La regresión logística obtuvo una exactitud ligeramente superior y mejor área bajo la curva.
 
 ## Evidencias
-- Se encuantran en el archivo "04-Práctica4.ipynb" dentro de esta carpeta.
+- - En el archivo [Practica4](04-Practica4.ipynb) se encuantran realizada la actividad.
 
 ## Reflexión
 Aprendí a comparar modelos de forma sistemática y a valorar la importancia del preprocesamiento.  

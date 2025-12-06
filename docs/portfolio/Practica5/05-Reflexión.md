@@ -1,9 +1,8 @@
 ---
-title: "Práctica 5 – Validación y Selección de Modelos"
-date: 2025-01-01
+title: "Validación y Selección de Modelos - Práctica 5"
 ---
 
-# Práctica 5 – Validación y Selección de Modelos  
+# Validación y Selección de Modelos - Práctica 5
 **Materia:** Introducción a los Métodos de Aprendizaje Automático  
 
 ## Contexto
@@ -67,7 +66,8 @@ El trabajo se realizó sobre el dataset Student Dropout and Academic Success del
   - Factores económicos y demográficos tuvieron menor peso.
 
 ## Evidencias
-- Notebook “Práctica 5 – Validación y Selección de Modelos” con:
+- En el archivo [Practica5](05-Practica5.ipynb) se encuantran realizada la actividad.
+- Validación y Selección de Modelos” con:
   - Código de *pipelines*, validación cruzada y comparación de modelos.  
   - Gráficos de distribución de *scores* y *feature importance*.  
   - Visualizaciones de árboles individuales del Random Forest.

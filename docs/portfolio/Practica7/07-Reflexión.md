@@ -42,8 +42,7 @@ Durante el entrenamiento se observó la evolución del error y la precisión, co
 - Se realizaron visualizaciones que mostraron la mejora del modelo al aumentar el número de capas o neuronas, aunque también se notó un aumento del tiempo de entrenamiento.
 
 ## Evidencias
-El archivo “07-Practica7.ipynb” incluye:
-
+- En el archivo [Practica7](07-Practica7.ipynb) se encuantra:  
 - Código del perceptrón simple implementado desde cero.
 - Función para graficar y visualizar la frontera de decisión.
 - Entrenamiento y evaluación de una red MLP en TensorFlow.

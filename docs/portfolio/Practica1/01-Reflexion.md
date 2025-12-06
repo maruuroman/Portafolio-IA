@@ -1,8 +1,3 @@
----
-title: "EDA del Titanic – Práctica 1"
-date: 2025-01-01
----
-
 # EDA del Titanic – Práctica 1
 
 ## Contexto
@@ -36,7 +31,7 @@ Esta práctica se realizó en Google Colab, utilizando Python y librerías de an
   - Calculé correlaciones numéricas (`Survived`, `Pclass`, `Age`, `SibSp`, `Parch`, `Fare`).
 
 ## Evidencias
-- Se encuantran en el archivo "01-Práctica1.ipynb" dentro de esta carpeta. 
+- En el archivo [Practica1](01-Practica1.ipynb) se encuantran realizada la actividad.
 - Gráficos generados:
   - Conteo de supervivencia por sexo.
   - Tasa de supervivencia por clase.

@@ -29,7 +29,7 @@ El objetivo fue **comparar el desempeño entre una CNN desarrollada desde cero**
 ## Desarrollo y Resultados
 ### CNN Simple
 La red creada desde cero se estructuró con:
-```python
+`python´
 layers.Conv2D(32, (3,3), padding='same')
 layers.MaxPooling2D((2,2))
 layers.Conv2D(64, (3,3), padding='same')
@@ -62,7 +62,7 @@ El Transfer Learning es especialmente útil cuando se dispone de datasets peque�
 - Implementación de create_simple_cnn() y create_transfer_model() en TensorFlow/Keras.
 - Compilación y entrenamiento con optimizers.Adam y EarlyStopping.
 - Resultados numéricos y visuales de precisión y pérdida.
-- Notebook 09-Practica9.ipynb con todo el código ejecutado.
+- En el archivo [Practica9](09-Practica9.ipynb) se encuantran realizada la actividad.
 
 ## Reflexión Personal
 Esta práctica me ayudó a consolidar los conceptos de arquitectura CNN y Transfer Learning, entendiendo mejor cómo las redes preentrenadas aceleran el aprendizaje y mejoran la precisión.
