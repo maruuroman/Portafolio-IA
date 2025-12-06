@@ -1,7 +1,5 @@
----
-title: Titanic con Ensambles: Random Forest vs Gradient Boosting. 
-subtitle: Comparo ensambles de árboles (RF vs GB) sobre Titanic con pipeline, búsqueda de hiperparámetros, métricas, importancia de features y partial dependence plots (PDP).
----
+# Titanic con Ensambles: Random Forest vs Gradient Boosting. 
+## Comparo ensambles de árboles (RF vs GB) sobre Titanic con pipeline, búsqueda de hiperparámetros, métricas, importancia de features y partial dependence plots (PDP).
 
 ## objetivo 
 Comparar Random Forest y Gradient Boosting sobre Titanic con `Pipeline` + `ColumnTransformer`, GridSearchCV, métricas de clasificación, importancia de variables por permutación y Partial Dependence Plots (PDP).

@@ -1,6 +1,4 @@
----
-title: "CIFAR-10 con CNN: del baseline MLP a un modelo con aumento de datos"
----
+# "CIFAR-10 con CNN: del baseline MLP a un modelo con aumento de datos"
 
 ## Objetivo. 
 Construir una CNN pequeña para CIFAR-10, usando data augmentation y early stopping, y comparar conceptualmente contra el baseline anterior con MLP (sin convoluciones).
