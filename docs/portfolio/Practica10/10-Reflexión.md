@@ -18,9 +18,9 @@ El caso de negocio simula una **aplicación móvil para identificación de flore
 
 ## Actividades realizadas
 
-1. **Carga y preparación del dataset Oxford Flowers102** mediante `tensorflow_datasets`, aplicando `resize` y conversión a `float32`.  
-2. **Definición del pipeline baseline** con normalización mediante `preprocess_input`.  
-3. **Implementación de data augmentation avanzado** usando capas de Keras:
+1- **Carga y preparación del dataset Oxford Flowers102** mediante `tensorflow_datasets`, aplicando `resize` y conversión a `float32`.  
+2- **Definición del pipeline baseline** con normalización mediante `preprocess_input`.  
+3- **Implementación de data augmentation avanzado** usando capas de Keras:
 
    layers.RandomFlip("horizontal"),  <br>
    layers.RandomRotation(0.125),  <br>
@@ -29,23 +29,23 @@ El caso de negocio simula una **aplicación móvil para identificación de flore
    layers.RandomBrightness(0.2),  <br>
    layers.RandomContrast(0.2)  
 
-4. Creación del modelo base con transfer learning:
-base_model = keras.applications.EfficientNetB0(
-    include_top=False,
-    weights='imagenet',
-    input_shape=(IMG_SIZE, IMG_SIZE, 3)
-)
+4- Creación del modelo base con transfer learning:  <br>
+base_model = keras.applications.EfficientNetB0(  <br>
+    include_top=False,  <br>
+    weights='imagenet',  <br>
+    input_shape=(IMG_SIZE, IMG_SIZE, 3)  <br>
+)  <br>
 base_model.trainable = False
 
-5. Entrenamiento del modelo con los datos aumentados:
-history = model.fit(
-    train_augmented,
-    validation_data=test_baseline,
-    epochs=5,
-    verbose=1
+5- Entrenamiento del modelo con los datos aumentados:  <br>
+history = model.fit(  <br>
+    train_augmented,  <br>
+    validation_data=test_baseline,  <br>
+    epochs=5,  <br>
+    verbose=1  <br>
 )
 
-6. Evaluación del desempeño y guardado del modelo (mi_modelo_flores.h5). 
+6- Evaluación del desempeño y guardado del modelo (mi_modelo_flores.h5). 
 
 ## Desarrollo y Resultados
 
@@ -64,7 +64,7 @@ Además, consolidó el uso de transfer learning, optimizando tiempo de entrenami
 
 El enfoque de explicabilidad (GradCAM e Integrated Gradients) resulta clave para aumentar la transparencia y confiabilidad de los modelos, especialmente en aplicaciones educativas o científicas.
  
- ## Evidencias
+## Evidencias
 - Dataset: Oxford Flowers102 (~8000 imágenes, 102 clases).
 - Modelo: EfficientNetB0 (base preentrenada, capa densa final softmax).
 - Parámetros entrenables: Solo la capa final.
