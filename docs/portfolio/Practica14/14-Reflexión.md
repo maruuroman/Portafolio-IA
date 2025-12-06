@@ -27,67 +27,56 @@ El objetivo fue comparar enfoques zero-shot y few-shot, implementar structured o
 - Reflexión sobre modularidad, consistencia y fundamentos de las respuestas.
 
 ## Desarrollo y Resultados
-Prompts y LCEL
-
+**Prompts y LCEL**
 Se separaron instrucciones y contenido para mejorar reutilización:
+- from langchain_core.prompts import ChatPromptTemplate  <br>
+- from langchain_openai import ChatOpenAI  <br>
 
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_openai import ChatOpenAI
+prompt = ChatPromptTemplate.from_messages([  <br>
+    ("system", "Sos un asistente conciso y exacto."),  <br>
+    ("human", "Explicá {tema} en <=3 oraciones.")  <br>
+])  <br>
 
-prompt = ChatPromptTemplate.from_messages([
-    ("system", "Sos un asistente conciso y exacto."),
-    ("human", "Explicá {tema} en <=3 oraciones.")
-])
+llm = ChatOpenAI(model="gpt-5-mini", temperature=0)  <br>
+chain = prompt | llm  <br>
+print(chain.invoke({"tema": "atención multi-cabeza"}).content)  <br>
 
-llm = ChatOpenAI(model="gpt-5-mini", temperature=0)
-chain = prompt | llm
-print(chain.invoke({"tema": "atención multi-cabeza"}).content)
+- *Resultado*: modularidad del código y control sobre la salida del LLM.
 
-
-- Resultado: modularidad del código y control sobre la salida del LLM.
-
-Structured Output con Pydantic
-
+**Structured Output con Pydantic**
 Se definieron esquemas para garantizar respuestas JSON válidas:
+- from pydantic import BaseModel  <br>
+- from typing import List  <br>
 
-from pydantic import BaseModel
-from typing import List
+class Resumen(BaseModel):  <br>
+    title: str  <br>
+    bullets: List[str]  <br>
 
-class Resumen(BaseModel):
-    title: str
-    bullets: List[str]
+llm_json = llm.with_structured_output(Resumen)  <br>
+res = llm_json.invoke("Resumí en 3 bullets los riesgos de prompt injection.")  <br>
+res  <br>
 
-llm_json = llm.with_structured_output(Resumen)
-res = llm_json.invoke("Resumí en 3 bullets los riesgos de prompt injection.")
-res
+- *Resultado*: eliminación de parsing manual frágil y mayor confiabilidad.
 
-
-- Resultado: eliminación de parsing manual frágil y mayor confiabilidad.
-
-Zero-shot vs Few-shot
-
+**Zero-shot vs Few-shot**  <br>
 Se comparó desempeño y control de formato:
+- Zero-shot: funciona bien para clasificación simple.  <br>
+- Few-shot: mayor consistencia y control sobre la salida.   <br>
 
-- Zero-shot: funciona bien para clasificación simple.
-- Few-shot: mayor consistencia y control sobre la salida.
-
-Pipeline RAG
-
-Se implementó un pipeline simple con documentos locales:
-
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_classic.chains import create_retrieval_chain
+**Pipeline RAG**  <br>
+Se implementó un pipeline simple con documentos locales:  <br>
+- from langchain_text_splitters import RecursiveCharacterTextSplitter  <br>
+- from langchain_classic.chains import create_retrieval_chain  <br>
 
 # Split y vector store
-splitter = RecursiveCharacterTextSplitter(chunk_size=300, chunk_overlap=50)
-chunks = splitter.split_documents(docs)
-retriever = FAISS.from_documents(chunks, embedding=emb).as_retriever(search_kwargs={"k": 4})
+splitter = RecursiveCharacterTextSplitter(chunk_size=300, chunk_overlap=50)  <br>
+chunks = splitter.split_documents(docs)  <br>
+retriever = FAISS.from_documents(chunks, embedding=emb).as_retriever(search_kwargs={"k": 4})  <br>
+  <br>
+rag_chain = create_retrieval_chain(retriever, combine_docs_chain)  <br>
+rag_chain.invoke({"input": "¿Qué ventaja clave aporta RAG?"})  <br>
 
-rag_chain = create_retrieval_chain(retriever, combine_docs_chain)
-rag_chain.invoke({"input": "¿Qué ventaja clave aporta RAG?"})
-
-
-Resultado: respuestas fundamentadas en documentos específicos, demostrando el valor de RAG para grounding.
+- *Resultado*: respuestas fundamentadas en documentos específicos, demostrando el valor de RAG para grounding.
 
 ## Reflexión
 

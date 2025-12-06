@@ -32,12 +32,11 @@ Se analizó la interfaz del Cloud Console, identificando sus elementos principal
 - Panel superior de selección de proyectos.
 - Acceso a servicios como Compute, Storage, IAM, APIs, entre otros.
 
-Se comprendió cómo los laboratorios generan un proyecto temporal, que queda activo únicamente durante el tiempo del contador. Además, se revisaron los elementos del panel del laboratorio:
-
-Start Lab → Crea el entorno temporal
-Credit → Costo del laboratorio
-Time → Duración disponible
-Score → Seguimiento de actividades
+Se comprendió cómo los laboratorios generan un proyecto temporal, que queda activo únicamente durante el tiempo del contador. Además, se revisaron los elementos del panel del laboratorio:  <br>
+Start Lab → Crea el entorno temporal  <br>
+Credit → Costo del laboratorio  <br>
+Time → Duración disponible  <br>
+Score → Seguimiento de actividades  <br>
 
 **Gestión de Proyectos**
 
@@ -49,8 +48,8 @@ Score → Seguimiento de actividades
 **Roles y Permisos en IAM**
 
 - En la consola se visualizó el usuario principal (estudiante) con rol Editor, que permite crear y modificar recursos.
-- Luego se otorgó el rol Viewer a un segundo usuario ficticio, aplicando:
-- IAM & Admin → Grant Access → Add principal → Select role → Viewer
+- Luego se otorgó el rol Viewer a un segundo usuario ficticio, aplicando:  
+- IAM & Admin → Grant Access → Add principal → Select role → Viewer  <br>
 
 Esto permitió comprender los roles básicos:
 - Viewer

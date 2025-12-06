@@ -31,31 +31,29 @@ El objetivo fue comprender por qué los pipelines son esenciales, crear un pipel
 - Revisión del seguimiento del pipeline desde la interfaz de Vertex AI.
 
 ## Desarrollo y Resultados
-Pipeline Introductorio
+Pipeline Introductorio  <br>
 
-Se crearon tres componentes en KFP:
-    @component(base_image="python:3.12")
-    def product_name(text: str) -> str: ...
+Se crearon tres componentes en KFP:  <br>
+@component(base_image="python:3.12")  <br>
+    def product_name(text: str) -> str: ...  <br>
 
-    @component(base_image="python:3.12", packages_to_install=["emoji"])
-    def emoji(text: str) -> NamedTuple(...): ...
+@component(base_image="python:3.12", packages_to_install=["emoji"])  <br>
+    def emoji(text: str) -> NamedTuple(...): ...  <br>
 
-    @component(base_image="python:3.12")
-    def build_sentence(product: str, emoji: str, emojitext: str) -> str: ...
+@component(base_image="python:3.12")  <br>
+    def build_sentence(product: str, emoji: str, emojitext: str) -> str: ...  <br>
 
-Estos se integraron en un pipeline usando @dsl.pipeline, generando una oración final construida a partir de las salidas previas.
+Estos se integraron en un pipeline usando @dsl.pipeline, generando una oración final construida a partir de las salidas previas.  <br>
 
-El pipeline se compiló:
+El pipeline se compiló:  <br>
 
-    compiler.Compiler().compile(
-        pipeline_func=intro_pipeline,
-        package_path="intro_pipeline_job.json"
-    )
+compiler.Compiler().compile(  <br>
+    pipeline_func=intro_pipeline,  <br>
+    package_path="intro_pipeline_job.json"  <br>
+)  <br>
 
-Y luego se ejecutó:
-
-    api_client.create_run_from_job_spec("intro_pipeline_job.json")
-
+Y luego se ejecutó:  <br>
+   api_client.create_run_from_job_spec("intro_pipeline_job.json")  <br>
 
 El pipeline se ejecutó exitosamente y fue posible visualizar cada paso, su contenedor, entradas, salidas y logs desde Vertex AI Pipelines.
 
@@ -66,9 +64,8 @@ Se inició la creación de un pipeline mayor que:
 - Entrena un modelo AutoML Tabular
 - Evalúa el modelo
 - Lo despliega en Vertex AI
-- Este pipeline utiliza componentes preconstruidos del paquete:
-
-    from google_cloud_pipeline_components import aiplatform as gcc_aip
+- Este pipeline utiliza componentes preconstruidos del paquete:  <br>
+    from google_cloud_pipeline_components import aiplatform as gcc_aip  <br>
 
 El pipeline completo puede tardar más de 2 horas, por lo que solo se inició su ejecución dentro del laboratorio.
 
