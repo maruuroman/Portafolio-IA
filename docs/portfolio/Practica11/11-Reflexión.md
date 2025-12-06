@@ -5,16 +5,12 @@ Esta práctica tuvo como finalidad aplicar los conceptos de **detección de obje
 Se trabajó con el dataset **Fruit Detection** (Kaggle), compuesto por imágenes de frutas anotadas con bounding boxes pertenecientes a 6 clases.  
 El objetivo fue **comparar el desempeño entre el modelo generalista YOLOv8n preentrenado con COCO y un modelo fine-tuned específicamente para frutas**, evaluando métricas como mAP, Precision y Recall, y finalmente aplicar seguimiento persistente en video mediante **Norfair**.
 
----
-
 ## Objetivos
 - Realizar inferencia base con YOLOv8 preentrenado para identificar sus limitaciones fuera de dominio.  
 - Entrenar un modelo especializado mediante **fine-tuning** sobre un dataset de frutas.  
 - Evaluar el impacto del entrenamiento en métricas cuantitativas y detecciones visuales.  
 - Implementar un sistema de **tracking multi-objeto** sobre video usando Norfair.  
 - Analizar resultados, errores y trade-offs del enfoque adoptado.
-
----
 
 ## Actividades Realizadas
 
@@ -29,8 +25,6 @@ El objetivo fue **comparar el desempeño entre el modelo generalista YOLOv8n pre
 9. **Análisis de errores** mediante conteo de TP, FP, FN usando IoU ≥ 0.5.
 10. **Tracking multi-objeto** con Norfair sobre un video de frutas, generando IDs persistentes y estadísticas sobre la duración de los tracks.
 
----
-
 ## Desarrollo y Resultados
 
 ### Inferencia Base (Modelo COCO)
@@ -41,8 +35,6 @@ El modelo preentrenado en COCO pudo detectar algunas frutas (como banana y orang
 - Bounding boxes con baja confianza en escenas de góndolas
 
 Esto evidenció la necesidad de especializar el modelo.
-
----
 
 ### El entrenamiento produjo:
 - Reducción progresiva del box_loss y cls_loss
@@ -64,16 +56,15 @@ Esta práctica me ayudó a consolidar conocimientos sobre:
 - El papel de los FP/FN en el análisis de resultados
 - El funcionamiento interno de un sistema de tracking multi-objeto y el efecto de parámetros como distance_threshold
 
-También pude experimentar con decisiones prácticas como reducir el dataset mediante fraction=0.25 o usar un modelo liviano (nano) para acelerar el prototipado sin perder validez experimental.
+También pude experimentar con decisiones prácticas como reducir el dataset mediante fraction=0.25 o usar un modelo liviano para acelerar el prototipado sin perder validez experimental.
 
 En conjunto, fue una experiencia muy valiosa que integró visión por computadora, entrenamiento supervisado y análisis temporal, acercándose a escenarios reales de retail inteligente.
 
 ### Evidencias
 - Entrenamiento y validación en [Practica11](11-Practica11.ipynb).
-- Pesos generados en runs/detect/fruit_finetuned/weights/best.pt
 - Gráficos de entrenamiento (results.png)
 - Video exportado con tracking persistente
-- Notebook completo con ejecución paso a paso
+- Preguntas planteadas en el curso: [Practica11](PreguntasPractico.md)
 
 ### Referencias
 - Ultralytics YOLOv8 Docs & Training Guide

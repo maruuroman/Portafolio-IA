@@ -6,15 +6,11 @@ Se trabajó con el dataset **Flood Area Segmentation (Kaggle)**, compuesto por 2
 
 El objetivo principal fue **evaluar la capacidad del modelo SAM preentrenado para segmentar áreas inundadas sin entrenamiento adicional**, y luego **medir la mejora obtenida al ajustar el decoder del modelo para este dominio específico**.
 
----
-
 ## Objetivos
 - Evaluar la capacidad zero-shot de SAM usando prompts (points y boxes).  
 - Entrenar un modelo fine-tuned para mejorar la segmentación de agua en imágenes satelitales.  
 - Comparar métricas objetivas (IoU, Dice, Precision, Recall) entre ambos enfoques.  
 - Analizar mejoras, limitaciones y posibles aplicaciones en entornos reales de emergencia.  
-
----
 
 ## Actividades Realizadas
 
@@ -47,8 +43,6 @@ El objetivo principal fue **evaluar la capacidad del modelo SAM preentrenado par
    - Visualización lado a lado (GT vs pretrained vs fine-tuned)  
    - Análisis de errores reducidos tras el ajuste  
 
----
-
 ## Desarrollo y Resultados
 
 ### Zero-shot con SAM (Modelo Preentrenado)
@@ -66,8 +60,6 @@ Problemas detectados:
 - Segmentaciones incompletas en agua turbia o sin contraste  
 - Se observa que el modelo fue entrenado para objetos cotidianos, **no para segmentar cuerpos de agua**  
 
----
-
 ### Fine-tuning del SAM
 
 Solo se entrenó el decoder, dando mayor rapidez y menor requerimiento de VRAM.
@@ -83,21 +75,16 @@ Mejoras observadas:
 - Reducción de falsos positivos en sombras (>40%)  
 - Más robusto ante variaciones de luz y color  
 
----
-
 ## Visualización Comparativa
 
 - GT (Ground Truth) → máscara real
 - SAM Pretrained → predicción incompleta y fragmentada
 - SAM Fine-tuned → contornos ajustados a la topología real del agua
 
----
-
 ## Reflexión
 
 Esta práctica permitió comprobar que **SAM es un modelo extremadamente poderoso, pero no infalible fuera de su dominio preentrenado**.  
 En modo zero-shot, SAM se apoya fuertemente en patrones visuales generales y falla en:
-
 - Inundaciones sin bordes claros  
 - Agua con reflejos o baja saturación  
 - Escenarios satelitales con ruido o poca estructura visual
@@ -112,22 +99,17 @@ Además, reforzó la importancia de:
 - Entender cuándo priorizar **generalización (zero-shot)** vs **especialización (fine-tuning)**  
 - Ajustar solo partes del modelo para maximizar beneficios computacionales
 
----
-
 ## Reflexión Personal
 
 Este práctico me permitió profundizar en:
-
 - La arquitectura modular de SAM  
 - Cómo funcionan los **prompt-based segmentation models**  
 - La diferencia entre *general foundation models* y *task-adapted models*  
 - La importancia del **fine-tuning parcial** como compromiso entre costo y performance  
 
-También comprendí que en tareas críticas como respuesta a emergencias, **no basta con un modelo genérico**, se requiere adaptar y evaluar exhaustivamente antes del deployment.
+También comprendí que en tareas críticas como respuesta a emergencias, no basta con un modelo genérico, se requiere adaptar y evaluar exhaustivamente antes del deployment.
 
 En general, fue una experiencia sumamente enriquecedora que integró segmentación semántica, transferencia de aprendizaje y aplicación práctica en escenarios reales de impacto social.
-
----
 
 ## Evidencias
 
@@ -136,10 +118,7 @@ En general, fue una experiencia sumamente enriquecedora que integró segmentaci�
 - Visualizaciones superpuestas (GT vs predicciones)  
 - Curvas de loss e IoU por época  
 
----
-
 ## Referencias
-
 - Meta AI – **Segment Anything**  
 - Kaggle – Flood Area Segmentation Dataset  
 - PyTorch Documentation  

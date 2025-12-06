@@ -35,32 +35,31 @@ El pipeline clásico se construyó utilizando representación TF-IDF con max_fea
 
 ## Resultados principales:
 
-Métrica	Valor
-Accuracy	~0.80
-Macro F1	~0.69
-Weighted F1	~0.78
+Métrica	    Valor  <br>
+Accuracy	~0.80  <br>
+Macro F1	~0.69  <br>
+Weighted F1	~0.78  
 
 El modelo mostró un fuerte sesgo hacia la clase Neutral, reflejado en un recall del 97% para esta clase, pero con amplio margen de error en Bearish y Bullish.
 
 Este desempeño confirma las limitaciones del enfoque Bag-of-Words en contextos con ruido, escasa separabilidad lineal y dependencia contextual entre tokens.
 
-Modelo Transformer: Fine-Tuning con FinBERT
+**Modelo Transformer: Fine-Tuning con FinBERT**
 
 Se utilizó el modelo FinBERT (ProsusAI), especializado en texto financiero. El fine-tuning se realizó con:
-
-learning_rate = 2e-5
-batch_size = 16
-num_train_epochs = 3
+learning_rate = 2e-5  <br>
+batch_size = 16  <br>
+num_train_epochs = 3  <br>
 weight_decay = 0.01
-
 
 Se empleó macro-F1 como métrica principal debido al desbalance del dataset.
 
 # Resultados obtenidos:
 
-Modelo	Accuracy Test	Macro F1
-TF-IDF + Logistic Regression	~0.80	~0.69
-FinBERT (fine-tuning)	~0.87	~0.83
+| Modelo                       | Accuracy Test | Macro F1           |
+|---------------------------------------------|:------:|-------------------------------------------------------|
+| TF-IDF + Logistic Regression | ~0.80 | ~0.69 |
+| FinBERT (fine-tuning)        | ~0.87 | ~0.83 |
 
 FinBERT superó ampliamente al baseline, logrando mejoras del +7% en accuracy y +20% en macro-F1, especialmente en clases minoritarias.
 Se observó una ligera señal de overfitting en la tercera época (incremento del validation loss), siendo el mejor rendimiento el de la época 2.
@@ -72,7 +71,6 @@ La práctica permitió comprobar que los métodos clásicos como TF-IDF + Logist
 Por otro lado, el uso de Transformers como FinBERT mostró una superioridad evidente gracias a su comprensión contextual y su entrenamiento previo en textos financieros.
 
 Esto implica que:
-
 En entornos reales de mercado, donde las señales son sutiles y el lenguaje es altamente contextual, los Transformers ofrecen una ventaja significativa.
 
 El costo computacional es mayor, pero puede mitigarse con técnicas como quantization, caching de embeddings y reducción de batch size.
